@@ -15,7 +15,7 @@ class PostLoadingState extends PostState {
 
 class PostLoadedState extends PostState {
   final List<Posts> posts;
-  PostLoadedState({
+  const PostLoadedState({
     required this.posts,
   });
   @override

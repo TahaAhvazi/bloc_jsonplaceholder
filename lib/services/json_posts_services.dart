@@ -44,18 +44,20 @@ class RecivePost {
   Future<List<Posts>> getposts([int startIndex = 0]) async {
     final response =
         await get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
-    if (response.statusCode == 200) {
-      final body = json.decode(response.body) as List;
-      return body.map(
-        (dynamic json) {
-          return Posts(
-              userId: json['userId'],
-              id: json['id'],
-              title: json['title'],
-              body: json['body']);
-        },
-      ).toList();
-    }
-    throw Exception('UNKNOWN ERROR OCCURED ');
+    final myposts = postsFromJson(response.body);
+    return myposts;
+    // if (response.statusCode == 200) {
+    //   final body = json.decode(response.body) as List;
+    //   return body.map(
+    //     (dynamic json) {
+    //       return Posts(
+    //           userId: json['userId'],
+    //           id: json['id'],
+    //           title: json['title'],
+    //           body: json['body']);
+    //     },
+    //   ).toList();
+    // }
+    // throw Exception('UNKNOWN ERROR OCCURED ');
   }
 }
