@@ -6,3 +6,9 @@ abstract class PostEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class PostFetchedEvent extends PostEvent {
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
+}
